@@ -15,9 +15,53 @@ public class Entity {
         this.name2 = name2;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName1() {
+        return name1;
+    }
+
+    public void setName1(String name1) {
+        this.name1 = name1;
+    }
+
+    public String getName2() {
+        return name2;
+    }
+
+    public void setName2(String name2) {
+        this.name2 = name2;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Entity entity = (Entity) o;
+
+        if (id != entity.id) return false;
+        if (!name1.equals(entity.name1)) return false;
+        return name2.equals(entity.name2);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + name1.hashCode();
+        result = 31 * result + name2.hashCode();
+        return result;
+    }
+
     @Override
     public String toString() {
-        return "Entity{" +
+        return "{" +
                 "id=" + id +
                 ", name1='" + name1 + '\'' +
                 ", name2='" + name2 + '\'' +
