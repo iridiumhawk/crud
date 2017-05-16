@@ -54,17 +54,16 @@ public class Entity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + name1.hashCode();
-        result = 31 * result + name2.hashCode();
+        result = 31 * result + name1.hashCode() * 31;
+        result = 31 * result + name2.hashCode() + 1;
         return result;
     }
 
     @Override
     public String toString() {
-        return "{" +
+        return
                 "id=" + id +
                 ", name1='" + name1 + '\'' +
-                ", name2='" + name2 + '\'' +
-                '}';
+                ", name2='" + name2 + '\'' ;
     }
 }
